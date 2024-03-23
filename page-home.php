@@ -16,7 +16,6 @@
 get_header();
 ?>
 
-
 <main id="zak-primary" class="zak-primary">
 
     <?php $query = new WP_Query([
@@ -27,9 +26,11 @@ get_header();
 
     <?php if ($query->have_posts()) : ?>
 
-        <section id="events">
+        <section style="margin-bottom: 80px;" id="events">
+            <h1 style="text-align:center">Browse Games</h1>
+            <div class="owl-carousel owl-theme event-carousel">
             <?php while ($query->have_posts()) : $query->the_post(); ?>
-                <a href="<?php the_permalink(); ?>">
+                <a class="item" href="<?php the_permalink(); ?>">
                     <div class="fourpagebox ">
                         <div class="thumbbx"><img src="<?php echo get_the_post_thumbnail_url($post->ID, 'events'); ?>" alt=""></div>
                         <div class="pagecontent">
@@ -38,6 +39,7 @@ get_header();
                     </div>
                 </a>
             <?php endwhile; ?>
+            </div>
         </section>
 
     <?php
@@ -50,14 +52,11 @@ get_header();
     <?php if ($query->have_posts()) : ?>
 
         <section class="section_latest_news">
-
-
-            <h2 class="section_title">Latest News</h2>
-            <p></p>
-            <div class="subtitle">Nam fermentum ullamcorper luctus. Integer ultricies imperdiet rutrum. Donec vel ultrices purus. Vestibulum posuere eget magna eu blandit. Sed fermentum, est ut tincidunt luctus, urna tell</div>
+            <h1 style="text-align:center">Latest News</h1>
             <div class="latestnews">
+                <div class="owl-carousel owl-theme latest-news-carousel">
                 <?php while ($query->have_posts()) : $query->the_post(); ?>
-                    <div class="latest-news">
+                    <div class="latest-news item">
                         <div class="news_imgbox">
                             <img decoding="async" src="<?php echo get_the_post_thumbnail_url($post->ID, 'events'); ?>" alt="">
                         </div>
@@ -68,11 +67,9 @@ get_header();
                         </div>
                     </div>
                 <?php endwhile; ?>
+                </div>
             </div>
-            <p></p>
-
             <div class="clear"></div>
-
         </section>
 
     <?php

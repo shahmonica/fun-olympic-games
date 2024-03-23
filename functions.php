@@ -1,7 +1,7 @@
 <?php
-/* 
+/*
  * Child theme functions file
- * 
+ *
  */
 function fun_olympic_enqueue_styles()
 {
@@ -31,12 +31,16 @@ function fun_olympic_enqueue_styles()
     wp_enqueue_script(
         'fun_olympic_owl_carousel_js',
         get_stylesheet_directory_uri() . '/js/owl.min.js',
-        array('jquery')
+        array('jquery'),
+        '',
+        true
     );
     wp_enqueue_script(
         'fun_olympic_script',
         get_stylesheet_directory_uri() . '/js/fun_olympic_script.js',
-        array('jquery')
+        array('jquery'),
+        '',
+        true
     );
 }
 add_action('wp_enqueue_scripts', 'fun_olympic_enqueue_styles');
