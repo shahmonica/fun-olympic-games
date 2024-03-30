@@ -5,3 +5,25 @@ Author: TMonika Kumari Shah
 Template: zakra
 Version: 1.0
 */
+
+section {
+    min-height: 350px;
+}
+
+.upcoming-games-carousel .thumbbx img {
+    max-height: 185px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.latest-news-carousel .news_imgbox img {
+    max-height: 190px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.event-carousel .thumbbx img {
+    max-height: 135px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}

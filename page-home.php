@@ -51,7 +51,7 @@ get_header();
 
     <?php if ($query->have_posts()) : ?>
 
-        <section class="section_latest_news">
+        <section class="section_latest_news" style="margin-bottom: 80px;">
             <h1 style="text-align:center">Latest News</h1>
             <div class="latestnews">
                 <div class="owl-carousel owl-theme latest-news-carousel">
@@ -76,6 +76,38 @@ get_header();
     endif;
     wp_reset_postdata();
     ?>
+
+<?php $query = new WP_Query([
+        'post_type' => 'games',
+        'post_status' => 'publish',
+        'posts_per_page' => 5,
+    ]); ?>
+
+    <?php if ($query->have_posts()) : ?>
+
+        <section style="margin-bottom: 80px;" id="events">
+            <h1 style="text-align:center">Upcoming Games</h1>
+            <div class="owl-carousel owl-theme upcoming-games-carousel">
+            <?php while ($query->have_posts()) : $query->the_post(); ?>
+                <a class="item" href="<?php the_permalink(); ?>">
+                    <div class="fourpagebox ">
+                        <div class="thumbbx">
+                            <img src="<?php echo get_the_post_thumbnail_url($post->ID, 'events'); ?>" alt="">
+                        </div>
+                        <div class="pagecontent">
+                            <h3><?php echo get_the_title(); ?></h3>
+                        </div>
+                    </div>
+                </a>
+            <?php endwhile; ?>
+            </div>
+        </section>
+
+    <?php
+    endif;
+    wp_reset_postdata();
+    ?>
+
 
     <div class="clear"></div>
     </div><!-- .container -->
