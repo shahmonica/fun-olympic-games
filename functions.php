@@ -86,7 +86,7 @@ function fun_olympic_game_cpt()
             'has_archive' => true,
             'rewrite' => array('slug' => 'games'),
             'show_in_rest' => true,
-            'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt')
+            'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments')
 
         )
     );
